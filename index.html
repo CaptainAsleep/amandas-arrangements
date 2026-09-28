@@ -66,17 +66,21 @@
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:16px;
+    gap:12px;
     padding-block:16px;
   }
   .wordmark{
     font-family:'Cormorant Garamond', serif;
     font-weight:600;
-    font-size:19px;
-    letter-spacing:0.12em;
+    font-size:clamp(13px,4.2vw,19px);
+    letter-spacing:0.1em;
     text-transform:uppercase;
     color:var(--ink);
     white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    min-width:0;
+    flex:1 1 auto;
   }
   .wordmark span{color:var(--gold-deep);}
   nav.links{
@@ -110,6 +114,7 @@
     padding:8px 16px;
     border-radius:999px;
     white-space:nowrap;
+    flex:0 0 auto;
     transition:background .2s, color .2s;
   }
   .header-cta:hover, .header-cta:focus-visible{
@@ -119,6 +124,10 @@
   @media (max-width:760px){
     nav.links{display:none;}
   }
+  @media (max-width:420px){
+    .wordmark{letter-spacing:0.06em;}
+    .header-cta{padding:7px 12px; font-size:13px;}
+  }
 
   /* ---------- Hero ---------- */
   .hero{
@@ -126,7 +135,7 @@
     text-align:center;
   }
   .hero-logo{
-    max-width:560px;
+    max-width:clamp(200px,62vw,560px);
     margin:0 auto 8px;
   }
   .tagline{
